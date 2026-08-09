@@ -26,7 +26,11 @@ class SocialLink {
   final String handle;
   final String href;
 
-  const SocialLink({required this.label, required this.handle, required this.href});
+  const SocialLink({
+    required this.label,
+    required this.handle,
+    required this.href,
+  });
 }
 
 class SkillGroup {
@@ -55,11 +59,11 @@ class Job {
 }
 
 const profile = Profile(
-  name: 'Alex Rivera',
-  role: 'Software Engineer & Interface Designer',
-  location: 'Lisbon, Portugal',
-  available: true,
-  email: 'hello@alexrivera.dev',
+  name: 'Christian Maciosek',
+  role: 'Software Engineer',
+  location: 'Oelde Germany',
+  available: false,
+  email: 'christian-maciosek@t-online.de',
   tagline:
       'I build fast, considered interfaces where the engineering is invisible and the experience feels obvious.',
   intro: [
@@ -69,34 +73,45 @@ const profile = Profile(
 );
 
 const socials = <SocialLink>[
-  SocialLink(label: 'GitHub', handle: '@alexrivera', href: 'https://github.com'),
-  SocialLink(label: 'LinkedIn', handle: 'in/alexrivera', href: 'https://linkedin.com'),
-  SocialLink(label: 'X', handle: '@alexrivera', href: 'https://x.com'),
-  SocialLink(label: 'Read.cv', handle: 'alexrivera', href: 'https://read.cv'),
+  SocialLink(
+    label: 'GitHub',
+    handle: '@OhioTeppich',
+    href: 'https://github.com',
+  ),
+  SocialLink(
+    label: 'LinkedIn',
+    handle: 'in/christian-maciosek',
+    href: 'https://linkedin.com',
+  ),
+  //SocialLink(label: 'X', handle: '@alexrivera', href: 'https://x.com'),
+  //SocialLink(label: 'Read.cv', handle: 'alexrivera', href: 'https://read.cv'),
 ];
 
 const skillGroups = <SkillGroup>[
-  SkillGroup(title: 'Languages', items: ['TypeScript', 'JavaScript', 'Rust', 'Python', 'SQL', 'Go']),
-  SkillGroup(
-    title: 'Frameworks',
-    items: ['React', 'Next.js', 'Node.js', 'Svelte', 'tRPC', 'Tailwind CSS'],
-  ),
+  SkillGroup(title: 'Languages', items: ['Dart', 'Python', 'PHP', 'SQL']),
+  SkillGroup(title: 'Frameworks', items: ['Flutter']),
   SkillGroup(
     title: 'Systems & Infra',
-    items: ['PostgreSQL', 'Redis', 'Docker', 'Vercel', 'AWS', 'GraphQL'],
+    items: ['PostgreSQL', 'Redis', 'Docker'],
   ),
   SkillGroup(
     title: 'Craft',
-    items: ['Design systems', 'Accessibility', 'Motion', 'Perf profiling', 'Prototyping'],
+    items: [
+      'Design systems',
+      'Accessibility',
+      'Motion',
+      'Perf profiling',
+      'Prototyping',
+    ],
   ),
 ];
 
 const experience = <Job>[
   Job(
-    company: 'Northwind',
-    role: 'Staff Software Engineer',
-    period: '2022 — Present',
-    location: 'Remote',
+    company: 'Nielsen Design GmbH',
+    role: 'Software Engineer',
+    period: '2025 — Present',
+    location: 'Rheda-Wiedenbrück',
     summary:
         'Lead engineer on the design systems and editor platform teams, owning the component library used across every product surface.',
     highlights: [
@@ -106,10 +121,10 @@ const experience = <Job>[
     ],
   ),
   Job(
-    company: 'Loom Labs',
-    role: 'Senior Frontend Engineer',
-    period: '2019 — 2022',
-    location: 'Berlin',
+    company: 'RockAByte GmbH',
+    role: 'Flutter Developer',
+    period: '2023-2025',
+    location: 'Köln',
     summary:
         'Built the collaborative editor core and the real-time presence layer powering multiplayer documents.',
     highlights: [
@@ -117,7 +132,7 @@ const experience = <Job>[
       'Led the migration from a monolith to a typed, modular frontend.',
     ],
   ),
-  Job(
+  /*Job(
     company: 'Fieldwork',
     role: 'Product Engineer',
     period: '2017 — 2019',
@@ -128,5 +143,5 @@ const experience = <Job>[
       'Owned the charting library and data-fetching layer end to end.',
       'Set up the CI/CD and preview-deploy workflow still in use today.',
     ],
-  ),
+  ),*/
 ];
