@@ -76,12 +76,17 @@ const socials = <SocialLink>[
   SocialLink(
     label: 'GitHub',
     handle: '@OhioTeppich',
-    href: 'https://github.com',
+    href: 'https://github.com/OhioTeppich',
   ),
   SocialLink(
     label: 'LinkedIn',
     handle: 'in/christian-maciosek',
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/christian-maciosek-4921aa249/',
+  ),
+  SocialLink(
+    label: 'TryHackMe',
+    handle: '@OhioTeppich',
+    href: 'https://tryhackme.com/p/OhioTeppich',
   ),
   //SocialLink(label: 'X', handle: '@alexrivera', href: 'https://x.com'),
   //SocialLink(label: 'Read.cv', handle: 'alexrivera', href: 'https://read.cv'),
