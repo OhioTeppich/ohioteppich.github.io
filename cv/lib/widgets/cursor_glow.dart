@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import '../app_controller.dart';
 import '../theme/app_theme.dart';
 
-/// Soft radial glow that follows the pointer, tinted by the active section —
-/// a lightweight stand-in for the original `CursorBackground` spotlight.
+/// Resolves the one accent color used by the complete cursor glow.
+Color glowAccent(String pointerSection, Color fallback) {
+  return AppColors.sectionAccents[pointerSection] ?? fallback;
+}
+
+/// Soft, single-color radial glow that follows the pointer.
 class CursorGlow extends StatelessWidget {
   const CursorGlow({super.key});
 
@@ -11,7 +15,7 @@ class CursorGlow extends StatelessWidget {
   Widget build(BuildContext context) {
     final app = AppScope.of(context);
     final position = app.pointerPosition;
-    final accent = AppColors.sectionAccents[app.activeSection] ?? context.colors.brand;
+    final accent = glowAccent(app.pointerSection, context.colors.brand);
 
     return IgnorePointer(
       child: Stack(
