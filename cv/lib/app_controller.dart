@@ -112,6 +112,16 @@ class AppController extends ChangeNotifier {
   void _onScroll() {
     scrolled = scrollController.offset > 12;
 
+    // Reached the bottom of the page: the last section is active even if its
+    // top never crosses the header threshold (e.g. a short section + footer
+    // combo that doesn't leave enough scroll room to push it past the line).
+    final position = scrollController.position;
+    if (position.maxScrollExtent > 0 && position.pixels >= position.maxScrollExtent - 1) {
+      activeSection = sectionOrder.last;
+      notifyListeners();
+      return;
+    }
+
     String best = 'top';
     for (final id in sectionOrder) {
       final renderObject = sectionKeys[id]?.currentContext?.findRenderObject();
