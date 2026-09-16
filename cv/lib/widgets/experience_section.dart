@@ -23,7 +23,7 @@ class ExperienceSection extends StatelessWidget {
           const SectionHeading(
             index: '03',
             label: 'Experience',
-            title: 'Eight years, three teams, one obsession with craft.',
+            title: 'Two teams, one focus: software that connects people and processes.',
           ),
           for (final job in experience)
             Container(
