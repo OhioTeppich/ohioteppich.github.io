@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../app_controller.dart';
 import '../data/site_data.dart';
@@ -39,7 +40,7 @@ class _ContactSectionState extends State<ContactSection> {
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 460),
           child: Text(
-            "I'm currently open to select freelance and full-time roles. The fastest way to reach me is email — I read everything.",
+            "I'm currently open to full-time roles. The fastest way to reach me is by email — I read everything.",
             style: TextStyle(fontSize: 17, height: 1.6, color: foreground.withValues(alpha: 0.8)),
           ),
         ),
@@ -145,7 +146,7 @@ class _SocialRow extends StatelessWidget {
       child: InkWell(
         onTap: () => launchUrl(Uri.parse(social.href), mode: LaunchMode.externalApplication),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: colors.border))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,7 +154,14 @@ class _SocialRow extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(social.label, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: foreground)),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _SocialIcon(label: social.label, color: colors.brand),
+                      const SizedBox(width: 8),
+                      Text(social.label, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: foreground)),
+                    ],
+                  ),
                   const SizedBox(height: 2),
                   Text(social.handle, style: AppTheme.mono(color: colors.mutedForeground, size: 11, letterSpacing: 0)),
                 ],
@@ -164,5 +172,26 @@ class _SocialRow extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _SocialIcon extends StatelessWidget {
+  final String label;
+  final Color color;
+
+  const _SocialIcon({required this.label, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    if (label == 'TryHackMe') {
+      return FaIcon(FontAwesomeIcons.userSecret, size: 15, color: color);
+    }
+
+    final icon = switch (label) {
+      'GitHub' => FontAwesomeIcons.github,
+      'LinkedIn' => FontAwesomeIcons.linkedinIn,
+      _ => Icons.link,
+    };
+    return FaIcon(icon, size: 15, color: color);
   }
 }

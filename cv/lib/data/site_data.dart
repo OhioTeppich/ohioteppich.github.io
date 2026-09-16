@@ -76,12 +76,17 @@ const socials = <SocialLink>[
   SocialLink(
     label: 'GitHub',
     handle: '@OhioTeppich',
-    href: 'https://github.com',
+    href: 'https://github.com/OhioTeppich',
   ),
   SocialLink(
     label: 'LinkedIn',
     handle: 'in/christian-maciosek',
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/christian-maciosek-4921aa249/',
+  ),
+  SocialLink(
+    label: 'TryHackMe',
+    handle: '@OhioTeppich',
+    href: 'https://tryhackme.com/p/OhioTeppich',
   ),
   //SocialLink(label: 'X', handle: '@alexrivera', href: 'https://x.com'),
   //SocialLink(label: 'Read.cv', handle: 'alexrivera', href: 'https://read.cv'),
@@ -113,11 +118,12 @@ const experience = <Job>[
     period: '2025 — Present',
     location: 'Rheda-Wiedenbrück',
     summary:
-        'Lead engineer on the design systems and editor platform teams, owning the component library used across every product surface.',
+        'Responsible for e-commerce integrations and internal operational software, connecting business systems and introducing AI capabilities.',
     highlights: [
-      'Rebuilt the rendering pipeline, cutting time-to-interactive by 43% across the suite.',
-      'Shipped a token-driven theming system adopted by 6 product teams.',
-      'Mentored 4 engineers from mid to senior level.',
+      'Own REST-based integrations for product, pricing, inventory and customer data across Plenty, Magento, ERP and PIM, including order synchronisation between Plenty and Magento.',
+      'Lead development of an internal operational data-capture app with Flutter, Dart and BLoC state management, used by production employees to record order data.',
+      'Built a Python HTTP server that connects the app to Microsoft SQL Server, providing the data foundation for Power BI reports used by management and team leads.',
+      'Co-own the selection of internal AI tools and identify opportunities for automation and document processing.',
     ],
   ),
   Job(
@@ -126,10 +132,13 @@ const experience = <Job>[
     period: '2023-2025',
     location: 'Köln',
     summary:
-        'Built the collaborative editor core and the real-time presence layer powering multiplayer documents.',
+        'Worked in an agency environment, delivering client products in agile Scrum teams and coordinating closely with clients.',
     highlights: [
-      'Designed a CRDT-backed sync engine handling 20k concurrent sessions.',
-      'Led the migration from a monolith to a typed, modular frontend.',
+      'Led frontend development for Vodafone’s TOBi chatbot, shaping its UI, accessible experience and conversation flow.',
+      'Contributed to Worksheet Go in a cross-functional project team.',
+      'Built both projects with Flutter and Dart, REST APIs and BLoC state management, following a domain-driven approach.',
+      'Wrote unit and widget tests within a test setup that also included integration tests.',
+      'Worked in teams of 2 developers and 1 designer (TOBi) and 6 developers and 1 designer (Worksheet Go).',
     ],
   ),
   /*Job(

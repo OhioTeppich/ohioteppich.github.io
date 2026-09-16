@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 
 /// Section ids, in document order — mirrors the `id="..."` anchors in the
 /// original React site (hero="top").
-const sectionOrder = <String>['top', 'about', 'skills', 'experience', 'contact'];
+const sectionOrder = <String>[
+  'top',
+  'about',
+  'skills',
+  'experience',
+  'contact',
+];
 
 /// Centralised app state: theme, scroll position / active section, command
 /// palette visibility and the cursor-glow pointer position. One controller
@@ -23,6 +29,7 @@ class AppController extends ChangeNotifier {
   bool paletteOpen = false;
   bool emailCopied = false;
   Offset? pointerPosition;
+  String pointerSection = 'top';
 
   AppController() {
     scrollController.addListener(_onScroll);
@@ -55,7 +62,38 @@ class AppController extends ChangeNotifier {
 
   void setPointer(Offset? position) {
     pointerPosition = position;
+    pointerSection = position == null
+        ? 'top'
+        : _sectionAtPointer(position) ?? pointerSection;
     notifyListeners();
+  }
+
+  /// Returns the id of the section that contains [position], if any.
+  ///
+  /// Kept separate from scroll-spy state: the cursor glow should reflect the
+  /// section directly below the pointer, even while another section is active
+  /// in the navigation.
+  static String? sectionAtPointer(Offset position, Map<String, Rect> bounds) {
+    for (final id in sectionOrder) {
+      if (bounds[id]?.contains(position) ?? false) return id;
+    }
+    return null;
+  }
+
+  String? _sectionAtPointer(Offset position) {
+    return sectionAtPointer(position, sectionBounds());
+  }
+
+  /// The current on-screen bounds of every content section.
+  Map<String, Rect> sectionBounds() {
+    final bounds = <String, Rect>{};
+    for (final id in sectionOrder) {
+      final renderObject = sectionKeys[id]?.currentContext?.findRenderObject();
+      if (renderObject is! RenderBox || !renderObject.hasSize) continue;
+      final topLeft = renderObject.localToGlobal(Offset.zero);
+      bounds[id] = topLeft & renderObject.size;
+    }
+    return bounds;
   }
 
   void scrollToSection(String id) {
@@ -72,7 +110,6 @@ class AppController extends ChangeNotifier {
   }
 
   void _onScroll() {
-    final wasScrolled = scrolled;
     scrolled = scrollController.offset > 12;
 
     String best = 'top';
@@ -85,10 +122,8 @@ class AppController extends ChangeNotifier {
       }
     }
 
-    if (wasScrolled != scrolled || best != activeSection) {
-      activeSection = best;
-      notifyListeners();
-    }
+    activeSection = best;
+    notifyListeners();
   }
 
   @override
@@ -102,8 +137,11 @@ class AppController extends ChangeNotifier {
 /// Makes an [AppController] available to the whole subtree, rebuilding
 /// dependents whenever it calls `notifyListeners()`.
 class AppScope extends InheritedNotifier<AppController> {
-  const AppScope({super.key, required AppController controller, required super.child})
-    : super(notifier: controller);
+  const AppScope({
+    super.key,
+    required AppController controller,
+    required super.child,
+  }) : super(notifier: controller);
 
   static AppController of(BuildContext context) {
     final scope = context.dependOnInheritedWidgetOfExactType<AppScope>();

@@ -19,8 +19,8 @@ class AppColors extends ThemeExtension<AppColors> {
 
   static const sectionAccents = <String, Color>{
     'top': Color(0xFF4C6BE0),
-    'about': Color(0xFF8A5CD6),
-    'skills': Color(0xFF2FA98C),
+    'about': Color(0xFF4C6BE0),
+    'skills': Color(0xFF8A5CD6),
     'experience': Color(0xFFC9922E),
     'contact': Color(0xFFD1467F),
   };
