@@ -67,7 +67,7 @@ const profile = Profile(
   tagline:
       'I build fast, considered interfaces where the engineering is invisible and the experience feels obvious.',
   intro: [
-    'I am a software engineer who cares as much about the seam between two components as I do about the system that renders them. For the last eight years I have shipped products at the intersection of design and infrastructure — design systems, developer tools, and the quiet performance work that makes an app feel instant.',
+    'I am a software engineer who cares as much about the seam between two components as I do about the system that renders them. Over the last three years I have shipped products at the intersection of design and infrastructure — leading frontend development for Vodafone’s TOBi chatbot and Worksheet Go in an agency setting, and now connecting e-commerce and operational systems with Flutter, Python and AI-assisted automation.',
     'My favourite problems are the ones nobody notices when they are solved well: a form that never loses your input, a page that hydrates before you finish blinking, an animation that gets out of your way.',
   ],
 );

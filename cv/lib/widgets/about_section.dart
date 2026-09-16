@@ -40,7 +40,7 @@ class AboutSection extends StatelessWidget {
         children: [
           _Fact(label: 'Based in', value: profile.location, colors: colors, foreground: foreground),
           _Fact(label: 'Focus', value: 'Interfaces, tooling & performance', colors: colors, foreground: foreground),
-          _Fact(label: 'Experience', value: '8 years shipping products', colors: colors, foreground: foreground),
+          _Fact(label: 'Experience', value: '+3 years shipping products', colors: colors, foreground: foreground),
           _Fact(label: 'Status', value: 'Open to new work', colors: colors, foreground: colors.brand, isLast: true),
         ],
       ),
