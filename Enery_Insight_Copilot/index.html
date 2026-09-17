@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Energy Insight Copilot – eine Portfolio-Demo für nachvollziehbare Energieanalysen.">
+    <meta name="robots" content="noindex">
+    <title>Energy Insight Copilot · In Vorbereitung</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #edf6f3;
+        --muted: #a7bbb6;
+        --line: rgba(212, 236, 228, .18);
+        --surface: rgba(13, 38, 38, .78);
+        --accent: #79e2b0;
+        --accent-deep: #0a6e54;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(30, 147, 107, .24), transparent 30rem),
+          radial-gradient(circle at 88% 82%, rgba(30, 110, 124, .25), transparent 28rem),
+          #071b1d;
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      main {
+        width: min(100% - 2rem, 54rem);
+        padding: 3rem 0;
+      }
+
+      .panel {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(2rem, 6vw, 4.5rem);
+        border: 1px solid var(--line);
+        border-radius: 1.5rem;
+        background: var(--surface);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, .28);
+      }
+
+      .panel::after {
+        content: "";
+        position: absolute;
+        right: -4rem;
+        top: -4rem;
+        width: 15rem;
+        height: 15rem;
+        border: 1px solid rgba(121, 226, 176, .25);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2rem rgba(121, 226, 176, .04), 0 0 0 4rem rgba(121, 226, 176, .025);
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: .65rem;
+        margin: 0 0 2rem;
+        color: var(--accent);
+        font-size: .84rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: .65rem;
+        height: .65rem;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 .3rem rgba(121, 226, 176, .13);
+      }
+
+      h1 {
+        max-width: 10ch;
+        margin: 0;
+        font-size: clamp(2.6rem, 8vw, 5rem);
+        line-height: .98;
+        letter-spacing: -.065em;
+      }
+
+      .lead {
+        max-width: 39rem;
+        margin: 1.6rem 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.7;
+      }
+
+      .roadmap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: .75rem;
+        margin-top: 2.5rem;
+      }
+
+      .roadmap div {
+        min-height: 7.25rem;
+        padding: 1rem;
+        border: 1px solid var(--line);
+        border-radius: .85rem;
+        background: rgba(3, 22, 24, .44);
+      }
+
+      .roadmap strong { display: block; color: var(--accent); font-size: .82rem; }
+      .roadmap span { display: block; margin-top: .45rem; color: var(--muted); font-size: .92rem; line-height: 1.4; }
+
+      footer {
+        margin: 1.25rem .25rem 0;
+        color: var(--muted);
+        font-size: .86rem;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 38rem) {
+        main { width: min(100% - 1.25rem, 54rem); padding: .625rem 0; }
+        .panel { border-radius: 1.1rem; }
+        .roadmap { grid-template-columns: 1fr; }
+        .roadmap div { min-height: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="panel" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>In Vorbereitung</p>
+        <h1 id="page-title">Energy Insight Copilot</h1>
+        <p class="lead">
+          Eine nachvollziehbare KI-Demo für Energieverantwortliche: Verbrauchsanomalien erkennen,
+          Betriebswissen mit Quellen einordnen und konkrete Prüfschritte vorbereiten.
+        </p>
+        <div class="roadmap" aria-label="Geplante Bausteine">
+          <div><strong>Analyse</strong><span>Verbrauch, Erwartungswerte und Anomalien.</span></div>
+          <div><strong>Wissensbasis</strong><span>Dokumentensuche mit sichtbaren Quellen.</span></div>
+          <div><strong>Massnahmen</strong><span>Bearbeitbare, evidenzbasierte Entwürfe.</span></div>
+        </div>
+      </section>
+      <footer>Diese Portfolio-Demo befindet sich im Aufbau. Es werden ausschliesslich synthetische Demo-Daten verwendet.</footer>
+    </main>
+  </body>
+</html>
