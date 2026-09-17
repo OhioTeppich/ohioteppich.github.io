@@ -40,7 +40,7 @@ class _CvAppState extends State<CvApp> {
         animation: _controller,
         builder: (context, _) {
           return MaterialApp(
-            title: 'CV',
+            title: 'Christian Maciosek',
             debugShowCheckedModeBanner: false,
             themeMode: _controller.themeMode,
             theme: AppTheme.light(),
